@@ -1,0 +1,40 @@
+# Configuration for the Stock Scanner
+# This file defines the criteria used to filter and identify potential trading opportunities.
+# It separates the scanning logic from the main application, allowing for flexible adjustments.
+
+# Asset universe and general filters
+universe:
+  # Exchanges to scan (e.g., NYSE, NASDAQ, AMEX)
+  exchanges: ["NASDAQ", "NYSE"]
+  # Minimum price for a stock to be considered
+  min_price: 10.0
+  # Maximum price for a stock to be considered
+  max_price: 200.0
+  # Minimum average daily volume (e.g., over the last 30 days)
+  min_avg_daily_volume: 1000000
+
+# Pre-market scanner settings (runs before market open)
+pre_market_scanner:
+  enabled: true
+  # Minimum gap percentage (positive for gap up, negative for gap down)
+  min_gap_percent: 2.0
+  # Minimum volume in pre-market session
+  min_pre_market_volume: 100000
+  # Minimum relative volume (current pre-market volume / average volume for that time)
+  min_relative_volume: 3.0
+
+# Intraday scanner settings (runs during market hours)
+intraday_scanner:
+  enabled: true
+  # How often the intraday scanner should run, in minutes
+  scan_interval_minutes: 5
+  # Specific criteria for intraday alerts
+  alerts:
+    - name: "VWAP Cross"
+      enabled: true
+    - name: "Approaching Bollinger Band"
+      enabled: false
+    - name: "High Relative Volume"
+      enabled: true
+      # Threshold for high intraday relative volume
+      min_intraday_rvol: 2.5

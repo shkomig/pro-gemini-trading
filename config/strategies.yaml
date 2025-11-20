@@ -1,0 +1,63 @@
+# Configuration for Trading Strategies
+# This file centralizes the parameters for all trading strategies used in the system.
+# By externalizing these settings, we can easily tune, test, and switch strategies
+# without modifying the core application code.
+
+- strategy:
+    name: "Opening Range Breakout (ORB)"
+    enabled: true
+    parameters:
+      # Timeframe for defining the opening range (e.g., 15, 30, 60 minutes)
+      range_minutes: 15
+      # Multiplier for volume confirmation on breakout (e.g., 1.5x the average volume of the range)
+      volume_multiplier: 1.5
+      # Profit target as a risk/reward ratio
+      reward_ratio: 2.0
+      # Stop loss as a risk/reward ratio
+      risk_ratio: 1.0
+
+- strategy:
+    name: "Mean Reversion (Bollinger Bands)"
+    enabled: false
+    parameters:
+      # Time period for calculating the moving average and standard deviation
+      period: 20
+      # Number of standard deviations for the upper and lower bands
+      std_dev: 2.0
+      # RSI period to confirm overbought/oversold conditions
+      rsi_period: 14
+      # RSI level to confirm overbought condition (for short entry)
+      rsi_overbought: 70
+      # RSI level to confirm oversold condition (for long entry)
+      rsi_oversold: 30
+
+- strategy:
+    name: "Trend Following (Moving Average Crossover)"
+    enabled: false
+    parameters:
+      # Period for the short-term (fast) moving average
+      short_ma_period: 50
+      # Period for the long-term (slow) moving average
+      long_ma_period: 200
+      # Type of moving average (e.g., SMA, EMA)
+      ma_type: "EMA"
+
+- strategy:
+    name: "VWAP + Momentum"
+    enabled: false
+    parameters:
+      # RSI period for momentum check
+      rsi_period: 14
+      # RSI level to confirm bullish momentum
+      rsi_threshold: 50
+      # How far price should be from VWAP to be considered (e.g., in %)
+      vwap_offset: 0.5
+
+- strategy:
+    name: "Gap & Go"
+    enabled: false
+    parameters:
+      # Minimum gap percentage to consider a stock
+      min_gap_percent: 2.0
+      # Timeframe to watch for the breakout of the pre-market high
+      breakout_window_minutes: 5

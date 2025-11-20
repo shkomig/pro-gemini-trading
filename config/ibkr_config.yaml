@@ -1,0 +1,23 @@
+# Interactive Brokers Configuration
+ibkr:
+  connection:
+    host: "127.0.0.1"
+    port: 7497  # Live Trading (7496 for Paper)
+    client_id: 999
+    timeout: 30
+    readonly: false
+  
+  trading:
+    account: ""  # Leave empty for default account
+    currency: "USD"
+    exchange: "SMART"
+  
+  data:
+    bar_size: "5 mins"
+    duration: "1 D"
+    what_to_show: "TRADES"
+    use_rth: true  # Regular Trading Hours only
+  
+  reconnect:
+    max_attempts: 5
+    delay_seconds: 10

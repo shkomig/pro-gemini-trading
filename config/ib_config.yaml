@@ -1,0 +1,12 @@
+connection:
+  host: 127.0.0.1
+  port: 7497  # Port for TWS Paper Trading
+  client_id: 1
+  max_retries: 5
+  retry_delay: 10
+  simulation_mode: false # Set to false to connect to a real TWS/Gateway
+
+data_request:
+  symbol: "AAPL"
+  duration: "1 Y"
+  bar_size: "1 day"

@@ -1,0 +1,6 @@
+strategies:
+  - name: "MA_Crossover_50_200"
+    type: "MACrossoverStrategy"
+    parameters:
+      short_window: 50
+      long_window: 200
