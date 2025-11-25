@@ -4,3 +4,34 @@ strategies:
     parameters:
       short_window: 50
       long_window: 200
+      rsi_period: 14
+      rsi_upper: 70
+      rsi_lower: 30
+
+  - name: "Bollinger_Bands_Reversion"
+    type: "BollingerBandsStrategy"
+    parameters:
+      period: 20
+      std_dev: 2.0
+
+  - name: "ORB_30_Min"
+    type: "ORBStrategy"
+    parameters:
+      opening_range_minutes: 30
+
+  - name: "VWAP_Trend"
+    type: "VWAPStrategy"
+    parameters:
+      window: 14
+
+  - name: "Volume_Breakout"
+    type: "VolumeBreakoutStrategy"
+    parameters:
+      lookback_period: 20
+      volume_spike_multiplier: 1.2
+
+risk_management:
+  position_size_usd: 2000  # Fixed amount in USD per trade
+  risk_per_trade: 50       # V3.1: Maximum USD risk per trade (for ATR-based sizing)
+  max_positions: 5         # Maximum number of simultaneous positions
+  global_trend_filter: true # Only buy if price > SMA200

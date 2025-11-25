@@ -7,17 +7,17 @@ universe:
   # Exchanges to scan (e.g., NYSE, NASDAQ, AMEX)
   exchanges: ["NASDAQ", "NYSE"]
   # Minimum price for a stock to be considered
-  min_price: 10.0
-  # Maximum price for a stock to be considered
-  max_price: 200.0
-  # Minimum average daily volume (e.g., over the last 30 days)
-  min_avg_daily_volume: 1000000
+  min_price: 5.0
+  # Maximum price for a stock to be considered (Updated to 100.0 per strategy guide for higher volatility)
+  max_price: 100.0
+  # Minimum average daily volume (Updated to 500,000 per strategy guide for better liquidity)
+  min_avg_daily_volume: 500000
 
 # Pre-market scanner settings (runs before market open)
 pre_market_scanner:
   enabled: true
-  # Minimum gap percentage (positive for gap up, negative for gap down)
-  min_gap_percent: 2.0
+  # Minimum gap percentage (Updated to 3.0% per strategy guide)
+  min_gap_percent: 3.0
   # Minimum volume in pre-market session
   min_pre_market_volume: 100000
   # Minimum relative volume (current pre-market volume / average volume for that time)

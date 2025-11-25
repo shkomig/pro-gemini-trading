@@ -3,3 +3,7 @@ pandas
 loguru
 PyYAML
 numpy
+
+ta
+
+pandas_ta
